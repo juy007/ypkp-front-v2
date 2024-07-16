@@ -1,0 +1,14 @@
+<script src="{{ asset('assets/js/jquery.js') }} "></script>
+			<script src="{{ asset('assets/js/bootstrap.min.js') }} "></script>
+			<script src="{{ asset('assets/js/custom.js?load=2') }} "></script>
+			<script src="{{ asset('assets/js/jquery.sticky.js') }} "></script>
+			<script src="{{ asset('assets/js/wow.min.js') }} "></script>
+			<script src="{{ asset('assets/js/owl.carousel.min.js') }} "></script>
+			<script src="{{ asset('assets/js/ekko-lightbox-min.js') }} "></script>
+			<script type="text/javascript">
+				$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) { event.preventDefault(); $(this).ekkoLightbox(); }); 
+			</script>
+			<script>
+				new WOW().init();
+			</script>
+			<script src="{{ asset('assets/js/ypkp.js') }} "></script>

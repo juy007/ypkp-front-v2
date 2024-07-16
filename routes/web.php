@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Home::class, 'index']);
+Route::get('/daftar', [Home::class, 'pendaftaran']);
+Route::get('/cekapi', [Home::class, 'cekapi']);
+Route::post('/get-konsentrasi', [Home::class, 'konsentrasi_jurusan']);
+//Route::get('/', function () {
+   // return view('index');
+//});

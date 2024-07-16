@@ -1,0 +1,73 @@
+$(document).ready(function(){
+			$('#btnsave').click(function(){
+				//document.getElementById('btnsave').style.display='none';
+				//document.getElementById('btnload').style.display='';
+			});
+		});
+
+		function file_validasi(type, id_input, id_note) {
+			var inputFile = document.getElementById(id_input);
+			var pathFile = inputFile.value;
+			if (type == 'pdf') {
+				var ekstensiOk = /(\.pdf)$/i;
+			}else{	
+				var ekstensiOk = /(\.jpg|\.jpeg|\.pngf)$/i;	
+			}
+			
+			if(!ekstensiOk.exec(pathFile) && inputFile.files[0].size > 500000){
+				  inputFile.value = '';
+		       	document.getElementById(id_note).style.color="red";
+		       	document.getElementById(id_note).style.fontSize="15px";
+		       
+		    }else if(!ekstensiOk.exec(pathFile)){
+				  inputFile.value = '';
+		       	document.getElementById(id_note).style.color="red";
+		       	document.getElementById(id_note).style.fontSize="15px";
+		       
+		    }else if(inputFile.files[0].size > 500000){
+				  inputFile.value = '';
+		       	document.getElementById(id_note).style.color="red";
+		       	document.getElementById(id_note).style.fontSize="15px";
+		       
+		    }else{
+		    	document.getElementById(id_note).style.color="#C9A000";
+		       	document.getElementById(id_note).style.fontSize="10px";
+		    }
+		}
+
+		function file_validasi_formulir(type, id_input, id_note) {
+			var inputFile = document.getElementById(id_input);
+			var pathFile = inputFile.value;
+			
+			var ekstensiOk = /(\.docx)$/i;
+						
+			if(!ekstensiOk.exec(pathFile)){
+				  inputFile.value = '';
+		       	document.getElementById(id_note).style.color="red";
+		       	document.getElementById(id_note).style.fontSize="15px";
+		       
+		    }else{
+		    	document.getElementById(id_note).style.color="#C9A000";
+		       	document.getElementById(id_note).style.fontSize="10px";
+		    }
+		}
+
+		function get_konsentrasi()
+		{ 
+			document.getElementById('label_jurusan').value=$("#jurusan option:selected").text();
+			var id_jurusan = $('#jurusan').val();
+			$.ajax({
+				type: 'POST',
+				url: 'http://127.0.0.1:8000/get-konsentrasi',
+				dataType: 'json',
+				data: { 'id_jurusan': id_jurusan , '_token': '{{csrf_token()}}'},
+				success: function(response) {
+					$('#konsentrasi').empty();
+					
+					$('#konsentrasi').append(response.options);
+				},
+				error: function(xhr, status, error) {
+					console.error('Error fetching data:', error);
+				}
+			});
+		}
