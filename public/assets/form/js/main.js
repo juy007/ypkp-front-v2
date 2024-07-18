@@ -26,6 +26,7 @@ $(function() {
 					foto: "required",
 					ktp: "required",
 					formulir: "required",
+					pernyataan: "required",
 					email: {
 						required: true,
 						email: true
@@ -50,6 +51,7 @@ $(function() {
 					foto: "foto wajib diisi",
 					ktp: "ktp wajib diisi",
 					formulir: "formulir wajib diisi",
+					pernyataan: "pernyataan wajib diisi",
 					email: "email wajib diisi",
 				},
 				

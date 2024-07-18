@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [Home::class, 'index']);
 Route::get('/daftar', [Home::class, 'pendaftaran']);
+Route::get('/daftar/{status}', [Home::class, 'pendaftaran_notif']);
 Route::get('/cekapi', [Home::class, 'cekapi']);
+Route::get('/cekapii/{id}', [Home::class, 'cekapi']);
 Route::post('/get-konsentrasi', [Home::class, 'konsentrasi_jurusan']);
 //Route::get('/', function () {
    // return view('index');

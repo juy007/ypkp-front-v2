@@ -52,6 +52,23 @@ $(document).ready(function(){
 		    }
 		}
 
+		function file_validasi_pernyataan(type, id_input, id_note) {
+			var inputFile = document.getElementById(id_input);
+			var pathFile = inputFile.value;
+			
+			var ekstensiOk = /(\.docx)$/i;
+						
+			if(!ekstensiOk.exec(pathFile)){
+				  inputFile.value = '';
+		       	document.getElementById(id_note).style.color="red";
+		       	document.getElementById(id_note).style.fontSize="15px";
+		       
+		    }else{
+		    	document.getElementById(id_note).style.color="#C9A000";
+		       	document.getElementById(id_note).style.fontSize="10px";
+		    }
+		}
+
 		function get_konsentrasi()
 		{ 
 			document.getElementById('label_jurusan').value=$("#jurusan option:selected").text();

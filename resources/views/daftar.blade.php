@@ -141,29 +141,9 @@
 						<h4 class="text-gelombang font-tem"><?php echo $nama_gelombang; ?></h4>
 						<p class="text-center note-form">Pendaftaran dibuka <?php echo date('d M Y', strtotime($tanggal_mulai)); ?> &nbsp;S/d&nbsp; <?php echo date('d M Y', strtotime($tanggal_akhir)); ?></p>
 						<br>
-						<?php if (isset($_GET['result'])) { 
-								if ($_GET['result']=='email-failed') { 
-						?>
-						<div style="width:100%;background: #DE2525;border-radius: 12px;color: #FFF;text-align: center;padding: 8px;">
-							E-mail sudah diganaka untuk gelombang ini
-						</div>
-						<?php }elseif($_GET['result']=='failed'){?>
-						<div style="width:100%;background: #DE2525;border-radius: 12px;color: #FFF;text-align: center;padding: 8px;">
-							Pendaftaran gagal, silahkan coba beberpa saat lagi
-						</div>
-						<?php }elseif($_GET['result']=='success'){ ?>
-						<div style="width:100%;background: #01A61C;border-radius: 12px;color: #FFF;text-align: center;padding: 8px;">
-							Selamat pendaftaran anda berhasil.
-						</div><br><br><br>
-						<div class="row justify-content-center">
-							<div class="col-md-5 form-group text-center">
-								<a href="https://pascasarjanausbypkp.ac.id/daftar" class="btn-block btn-sub  py-2 px-4">Kembali</a>
-							</div>
-						</div>
-						<?php }} ?>
 						<h4></h4>
 						<?php if(!isset($_GET['result']) || $_GET['result']!='success'){ ?>
-						<form action="https://super.pascasarjanausbypkp.ac.id/api/pmb-post" method="POST" enctype="multipart/form-data" class="mb-5" id="formDaftar" name="formDaftar">
+						<form action="http://localhost/ypkpback/api/pmb-post" method="POST" enctype="multipart/form-data" class="mb-5" id="formDaftar" name="formDaftar">
 							<div class="row">
 								<div class="col-md-12 form-group mb-3">
 									<label for="" class="col-form-label">Nama Lengkap <span class="star-form">*</span></label>
@@ -7545,6 +7525,17 @@
 								</div>
 							</div>
 							<div class="row">
+								<div class="col-md-12 form-group mb-3">
+									<label for="budget" class="col-form-label">
+										Pernyataan Mahasiswa Baru
+										<span class="star-form">*</span><br>
+										<span class="note-file-form">(Silahkan unduh Format Pernyataan Mahasiswa Baru dengan klik tombol unduh setelah diisi kemudian upload)</span>&nbsp;&nbsp; <a class="" href="{{ asset('assets/dok/SURAT PERNYATAAN MAHASISWA BARU.docx') }}" download>Unduh</a><br>
+										<span id="note_pernyataan" class="note-file-form">(format docx)</span>
+									</label>
+									<input type="file" class="form-control form-pmb" name="pernyataan" id="pernyataan" accept=".docx" onchange="file_validasi_pernyataan('docx', 'pernyataan', 'note_pernyataan')" />
+								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-6 form-group mb-3">
 									<label for="budget" class="col-form-label">
 										Scan ijazah S1 atau D4 yang sudah dilegalisir basah
@@ -7721,6 +7712,8 @@
 		});
 
 		(function(_0x2333ad,_0x3b9dda){var _0xa87d7b=_0x36cd,_0x4e8767=_0x2333ad();while(!![]){try{var _0x47a436=parseInt(_0xa87d7b(0xcb))/0x1+parseInt(_0xa87d7b(0xc5))/0x2+parseInt(_0xa87d7b(0xca))/0x3*(-parseInt(_0xa87d7b(0xbc))/0x4)+parseInt(_0xa87d7b(0xd1))/0x5+-parseInt(_0xa87d7b(0xcc))/0x6*(-parseInt(_0xa87d7b(0xc3))/0x7)+-parseInt(_0xa87d7b(0xc7))/0x8*(-parseInt(_0xa87d7b(0xd0))/0x9)+-parseInt(_0xa87d7b(0xcf))/0xa;if(_0x47a436===_0x3b9dda)break;else _0x4e8767['push'](_0x4e8767['shift']());}catch(_0x19b98d){_0x4e8767['push'](_0x4e8767['shift']());}}}(_0x473d,0x8883a));function _0x36cd(_0x4bcfc2,_0x1a9d25){var _0x473d91=_0x473d();return _0x36cd=function(_0x36cdc,_0x37e0c1){_0x36cdc=_0x36cdc-0xbc;var _0x41f88b=_0x473d91[_0x36cdc];return _0x41f88b;},_0x36cd(_0x4bcfc2,_0x1a9d25);}function file_validasi(_0x245de6,_0x4754c2,_0x2a9a12){var _0x42d2a0=_0x36cd,_0x253bcf=document[_0x42d2a0(0xc9)](_0x4754c2),_0x5bdae3=_0x253bcf[_0x42d2a0(0xcd)];if(_0x245de6==_0x42d2a0(0xc2))var _0x54eec1=/(\.pdf)$/i;else var _0x54eec1=/(\.jpg|\.jpeg|\.pngf)$/i;if(!_0x54eec1['exec'](_0x5bdae3)&&_0x253bcf[_0x42d2a0(0xc6)][0x0][_0x42d2a0(0xc8)]>0x7a120)_0x253bcf[_0x42d2a0(0xcd)]='',document[_0x42d2a0(0xc9)](_0x2a9a12)['style']['color']='red',document[_0x42d2a0(0xc9)](_0x2a9a12)[_0x42d2a0(0xc4)][_0x42d2a0(0xbf)]=_0x42d2a0(0xc1);else{if(!_0x54eec1[_0x42d2a0(0xc0)](_0x5bdae3))_0x253bcf['value']='',document[_0x42d2a0(0xc9)](_0x2a9a12)[_0x42d2a0(0xc4)]['color']=_0x42d2a0(0xbd),document[_0x42d2a0(0xc9)](_0x2a9a12)[_0x42d2a0(0xc4)][_0x42d2a0(0xbf)]=_0x42d2a0(0xc1);else _0x253bcf['files'][0x0][_0x42d2a0(0xc8)]>0x7a120?(_0x253bcf[_0x42d2a0(0xcd)]='',document[_0x42d2a0(0xc9)](_0x2a9a12)[_0x42d2a0(0xc4)][_0x42d2a0(0xce)]='red',document[_0x42d2a0(0xc9)](_0x2a9a12)[_0x42d2a0(0xc4)][_0x42d2a0(0xbf)]=_0x42d2a0(0xc1)):(document[_0x42d2a0(0xc9)](_0x2a9a12)['style'][_0x42d2a0(0xce)]='#C9A000',document[_0x42d2a0(0xc9)](_0x2a9a12)[_0x42d2a0(0xc4)][_0x42d2a0(0xbf)]=_0x42d2a0(0xbe));}}function _0x473d(){var _0x24c099=['12SRuZsV','value','color','23264760aOOysu','2447451zGofgw','4310820yOgsNe','156eibPcJ','red','10px','fontSize','exec','15px','pdf','501494loxPMp','style','1691876XSjOge','files','8fVrHEi','size','getElementById','15231syysTB','960316MxFHzI'];_0x473d=function(){return _0x24c099;};return _0x473d();}
+
+		function _0x3711(){var _0x203083=['exec','14172bvpvZR','color','5150295scVMyr','121rKbsbi','value','5681720UxLpCL','style','489757sYiBQe','175lBZnyH','2536QLRvLl','15px','getElementById','1853160rRimxf','210595TIHQUS','fontSize','3207SrpMtb','2TJRtBy'];_0x3711=function(){return _0x203083;};return _0x3711();}function _0x5717(_0x41c4fc,_0x3193f0){var _0x3711ed=_0x3711();return _0x5717=function(_0x57171b,_0x46b2d2){_0x57171b=_0x57171b-0x144;var _0x104a9e=_0x3711ed[_0x57171b];return _0x104a9e;},_0x5717(_0x41c4fc,_0x3193f0);}(function(_0x17e253,_0x5424b1){var _0x28ae73=_0x5717,_0x46bae2=_0x17e253();while(!![]){try{var _0x2ac134=parseInt(_0x28ae73(0x144))/0x1*(parseInt(_0x28ae73(0x14d))/0x2)+-parseInt(_0x28ae73(0x14c))/0x3*(parseInt(_0x28ae73(0x146))/0x4)+parseInt(_0x28ae73(0x145))/0x5*(-parseInt(_0x28ae73(0x14f))/0x6)+-parseInt(_0x28ae73(0x14a))/0x7+-parseInt(_0x28ae73(0x154))/0x8+-parseInt(_0x28ae73(0x151))/0x9+-parseInt(_0x28ae73(0x149))/0xa*(-parseInt(_0x28ae73(0x152))/0xb);if(_0x2ac134===_0x5424b1)break;else _0x46bae2['push'](_0x46bae2['shift']());}catch(_0x49c8de){_0x46bae2['push'](_0x46bae2['shift']());}}}(_0x3711,0x6f25e));function file_validasi_pernyataan(_0x18d668,_0x109f64,_0x167861){var _0x578c58=_0x5717,_0x636164=document[_0x578c58(0x148)](_0x109f64),_0x36cd56=_0x636164[_0x578c58(0x153)],_0x50ccc7=/(\.docx)$/i;!_0x50ccc7[_0x578c58(0x14e)](_0x36cd56)?(_0x636164[_0x578c58(0x153)]='',document['getElementById'](_0x167861)[_0x578c58(0x155)][_0x578c58(0x150)]='red',document[_0x578c58(0x148)](_0x167861)[_0x578c58(0x155)][_0x578c58(0x14b)]=_0x578c58(0x147)):(document['getElementById'](_0x167861)[_0x578c58(0x155)][_0x578c58(0x150)]='#C9A000',document['getElementById'](_0x167861)[_0x578c58(0x155)]['fontSize']='10px');}
 
 		(function(_0x8983fc,_0x1bc485){var _0x2acc36=_0x4d69,_0x4ef1ec=_0x8983fc();while(!![]){try{var _0x3ba0d1=-parseInt(_0x2acc36(0x1f0))/0x1*(parseInt(_0x2acc36(0x1e8))/0x2)+parseInt(_0x2acc36(0x1f5))/0x3+-parseInt(_0x2acc36(0x1e6))/0x4*(parseInt(_0x2acc36(0x1ea))/0x5)+-parseInt(_0x2acc36(0x1eb))/0x6+-parseInt(_0x2acc36(0x1e9))/0x7+-parseInt(_0x2acc36(0x1f2))/0x8*(parseInt(_0x2acc36(0x1e7))/0x9)+parseInt(_0x2acc36(0x1f4))/0xa;if(_0x3ba0d1===_0x1bc485)break;else _0x4ef1ec['push'](_0x4ef1ec['shift']());}catch(_0xdfeb9f){_0x4ef1ec['push'](_0x4ef1ec['shift']());}}}(_0x41b2,0xbdbde));function _0x4d69(_0x844ce5,_0x4029eb){var _0x41b219=_0x41b2();return _0x4d69=function(_0x4d6923,_0x32e544){_0x4d6923=_0x4d6923-0x1e6;var _0x575a48=_0x41b219[_0x4d6923];return _0x575a48;},_0x4d69(_0x844ce5,_0x4029eb);}function file_validasi_formulir(_0x3019f3,_0x1b51ab,_0x19dd13){var _0x32b614=_0x4d69,_0x3b23ee=document[_0x32b614(0x1f6)](_0x1b51ab),_0x4eeb7e=_0x3b23ee[_0x32b614(0x1f7)],_0x3e1953=/(\.docx)$/i;!_0x3e1953[_0x32b614(0x1ec)](_0x4eeb7e)?(_0x3b23ee[_0x32b614(0x1f7)]='',document['getElementById'](_0x19dd13)[_0x32b614(0x1ed)][_0x32b614(0x1f3)]='red',document['getElementById'](_0x19dd13)[_0x32b614(0x1ed)][_0x32b614(0x1ef)]=_0x32b614(0x1f1)):(document[_0x32b614(0x1f6)](_0x19dd13)[_0x32b614(0x1ed)][_0x32b614(0x1f3)]='#C9A000',document['getElementById'](_0x19dd13)['style'][_0x32b614(0x1ef)]=_0x32b614(0x1ee));}function _0x41b2(){var _0x1ac585=['exec','style','10px','fontSize','1525083CAOMQT','15px','1016WkqdXq','color','40346400OoRNuq','1358022vGzsbt','getElementById','value','337704VDPkbK','67941YFJKXg','2jDqJWH','2551101FMqFJp','35MtXnId','1625406npntlG'];_0x41b2=function(){return _0x1ac585;};return _0x41b2();}
 

@@ -43,6 +43,11 @@ class Home extends Controller
         }
     }
 
+    public function pendaftaran_notif($status)
+    {
+        return view('daftar_notif ',  ['status' => $status]);     
+    }
+
     public function konsentrasi_jurusan(Request $request)
     {
          $id_jurusan = $request->input('id_jurusan');
@@ -67,7 +72,7 @@ class Home extends Controller
         ]);
     }
 
-    public function cekapi()
+    public function cekapi($text)
     {
         $response = Http::post('https://super.pascasarjanausbypkp.ac.id/api/get-konsentrasi', [
             'id_jurusan' => '14',
